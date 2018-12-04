@@ -6,8 +6,10 @@ import * as serviceWorker from './serviceWorker';
 import {createStore} from 'redux';
 import placeholder from './reducers/PlaceholderReducer';
 import {Provider} from 'react-redux'
+import {install} from 'redux-loop';
 
-const store = createStore(placeholder);
+const store = createStore(placeholder, install());
+
 
 render(
     <Provider store={store}>
