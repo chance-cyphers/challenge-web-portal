@@ -1,0 +1,10 @@
+.SkillList {
+    background-color: #bae3ee;
+    color: #000;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+.SkillList p {
+    margin: 0;
+}
