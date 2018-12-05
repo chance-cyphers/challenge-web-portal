@@ -1,9 +1,9 @@
 import React from 'react';
 import './SkillList.css';
 
-let SkillList = () => {
+let SkillList = (props) => {
   return (
-      <div className="SkillList">
+      <div className={`SkillList ${props.className}`}>
           <p>Example Skill</p>
       </div>
   );

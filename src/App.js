@@ -9,17 +9,21 @@ let App = ({msg, btnPressed}) => {
     return (
         <div className="App">
             <div className="title-bar"/>
-            <Container className="App-content">
-                <Row>
-                    <Col>
+            <Container className="App-content horizontalScroll" fluid={true}>
+                <Row className="">
+                    <Col xs="3">
                         <p>
                             {msg}
                         </p>
                         <button onClick={btnPressed}>Press me
                         </button>
                     </Col>
-                    <Col>
-                        <SkillList/>
+                    <Col xs="9">
+                        <SkillList className="inline"/>
+                        <SkillList className="inline"/>
+                        <SkillList className="inline"/>
+                        <SkillList className="inline"/>
+                        <SkillList className="inline"/>
                     </Col>
                 </Row>
             </Container>
