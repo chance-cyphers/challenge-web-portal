@@ -3,10 +3,10 @@ import {fetchData} from "../side-effects/placeholder-effects";
 import {FETCH_FAIL, FETCH_SUCCESS, fetchFail, fetchSuccess} from "../actions/actions";
 
 
-const initialState = { message: "hello world", count: 0, num: 0 };
+const initialState = {message: "hello world", count: 0, num: 0};
 
 function placeholder(state = initialState, action) {
-    switch(action.type) {
+    switch (action.type) {
         case "PLACEHOLDER_ACTION":
             return loop(state, Cmd.run(fetchData, {
                 successActionCreator: fetchSuccess,
