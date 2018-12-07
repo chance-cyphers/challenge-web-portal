@@ -19,26 +19,39 @@ class NewSkillModal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            modalIsOpen: false
+            modalIsOpen: false,
+            skillName: ""
         };
 
         this.createSkill = this.props.createSkill;
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
         this.onCreate = this.onCreate.bind(this);
+        this.handleNameChange = this.handleNameChange.bind(this);
     }
 
     openModal() {
-        this.setState({modalIsOpen: true});
+        this.setState({
+            ...this.state,
+            modalIsOpen: true,
+            skillName: ""
+        });
     }
 
     closeModal() {
-        this.setState({modalIsOpen: false});
+        this.setState({...this.state, modalIsOpen: false});
     }
 
     onCreate() {
-        this.createSkill();
+        this.createSkill(this.state.skillName);
         this.closeModal();
+    }
+
+    handleNameChange(event) {
+        this.setState({
+            ...this.state,
+            skillName: event.target.value
+        });
     }
 
     render() {
@@ -50,7 +63,10 @@ class NewSkillModal extends React.Component {
                     onRequestClose={this.closeModal}
                     style={customStyles}>
 
-                    <p>WOOOOOOOooOoooooOO</p>
+                    <label>
+                        Skill Name:
+                        <input type="text" value={this.state.skillName} onChange={this.handleNameChange}/>
+                    </label>
                     <button onClick={this.onCreate}>Create</button>
                 </Modal>
             </div>
@@ -60,8 +76,8 @@ class NewSkillModal extends React.Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        createSkill: () => {
-            dispatch(addNewSkill())
+        createSkill: (name) => {
+            dispatch(addNewSkill(name))
         }
     }
 };

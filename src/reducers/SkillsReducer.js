@@ -5,11 +5,11 @@ const initialState = {
 };
 
 export default function skillsReducer(state = initialState, action) {
-    switch(action.type) {
+    switch (action.type) {
         case ADD_NEW_SKILL:
             return {
                 ...state,
-                skills: [...state.skills, {}]
+                skills: [...state.skills, {name: action.name}]
             };
         default:
             return state;

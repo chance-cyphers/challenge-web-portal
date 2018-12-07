@@ -1,10 +1,10 @@
 import React from 'react';
 import './SkillList.css';
 
-let SkillList = (props) => {
+let SkillList = ({className, skillName}) => {
   return (
-      <div className={`SkillList ${props.className}`}>
-          <p>Example Skill</p>
+      <div className={`SkillList ${className}`}>
+          <p>{skillName}</p>
       </div>
   );
 };

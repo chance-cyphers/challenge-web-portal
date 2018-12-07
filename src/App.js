@@ -19,7 +19,10 @@ let App = ({skills}) => {
                     </Col>
                     <Col xs="9">
                         {skills.map((s, i) => {
-                            return <SkillList className="inline" key={i}/>
+                            return <SkillList
+                                className="inline"
+                                key={i}
+                                skillName={s.name}/>
                         })}
                     </Col>
                 </Row>
