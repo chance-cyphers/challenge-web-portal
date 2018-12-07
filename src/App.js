@@ -3,7 +3,10 @@ import './App.css';
 import {connect} from 'react-redux'
 import SkillList from "./components/SkillList/SkillList";
 import {Container, Row, Col} from 'reactstrap';
+import Modal from 'react-modal';
+import NewSkillModal from "./components/NewSkillModal";
 
+Modal.setAppElement('body')
 
 let App = ({msg, btnPressed}) => {
     return (
@@ -15,8 +18,8 @@ let App = ({msg, btnPressed}) => {
                         <p>
                             {msg}
                         </p>
-                        <button onClick={btnPressed}>Press me
-                        </button>
+                        <button onClick={btnPressed}>Press me</button>
+                        <NewSkillModal/>
                     </Col>
                     <Col xs="9">
                         <SkillList className="inline"/>
