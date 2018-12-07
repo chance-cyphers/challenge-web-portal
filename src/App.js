@@ -8,7 +8,7 @@ import NewSkillModal from "./components/NewSkillModal";
 
 Modal.setAppElement('body')
 
-let App = ({msg}) => {
+let App = ({skills}) => {
     return (
         <div className="App">
             <div className="title-bar"/>
@@ -18,11 +18,9 @@ let App = ({msg}) => {
                         <NewSkillModal/>
                     </Col>
                     <Col xs="9">
-                        <SkillList className="inline"/>
-                        <SkillList className="inline"/>
-                        <SkillList className="inline"/>
-                        <SkillList className="inline"/>
-                        <SkillList className="inline"/>
+                        {skills.map((s, i) => {
+                            return <SkillList className="inline" key={i}/>
+                        })}
                     </Col>
                 </Row>
             </Container>
@@ -32,14 +30,9 @@ let App = ({msg}) => {
 
 const mapStateToProps = state => {
     return {
-        msg: state.placeholder.message
+        skills: state.skills.skills
     }
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-    }
-};
-
-App = connect(mapStateToProps, mapDispatchToProps)(App);
+App = connect(mapStateToProps)(App);
 export default App;

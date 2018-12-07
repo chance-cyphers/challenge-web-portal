@@ -1,18 +1,20 @@
 import Modal from "react-modal";
 import React from "react";
+import {connect} from "react-redux";
+import {addNewSkill} from "../actions/actions";
 
 const customStyles = {
-    content : {
-        top                   : '50%',
-        left                  : '50%',
-        right                 : 'auto',
-        bottom                : 'auto',
-        marginRight           : '-50%',
-        transform             : 'translate(-50%, -50%)'
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)'
     }
 };
 
-export default class NewSkillModal extends React.Component {
+class NewSkillModal extends React.Component {
 
     constructor(props) {
         super(props);
@@ -20,8 +22,10 @@ export default class NewSkillModal extends React.Component {
             modalIsOpen: false
         };
 
+        this.createSkill = this.props.createSkill;
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
+        this.onCreate = this.onCreate.bind(this);
     }
 
     openModal() {
@@ -32,6 +36,11 @@ export default class NewSkillModal extends React.Component {
         this.setState({modalIsOpen: false});
     }
 
+    onCreate() {
+        this.createSkill();
+        this.closeModal();
+    }
+
     render() {
         return (
             <div>
@@ -39,13 +48,22 @@ export default class NewSkillModal extends React.Component {
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     onRequestClose={this.closeModal}
-                    style={customStyles}
-                >
+                    style={customStyles}>
+
                     <p>WOOOOOOOooOoooooOO</p>
+                    <button onClick={this.onCreate}>Create</button>
                 </Modal>
             </div>
         );
     }
-
 }
 
+const mapDispatchToProps = dispatch => {
+    return {
+        createSkill: () => {
+            dispatch(addNewSkill())
+        }
+    }
+};
+
+export default connect(null, mapDispatchToProps)(NewSkillModal);
