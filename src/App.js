@@ -2,20 +2,23 @@ import React from 'react';
 import './App.css';
 import {connect} from 'react-redux'
 import SkillList from "./components/SkillList/SkillList";
-import {Container, Row, Col} from 'reactstrap';
+import {Col, Container, Row} from 'reactstrap';
 import Modal from 'react-modal';
-import NewSkillModal from "./components/NewSkillModal";
+import ModalConductor from "./components/ModalConductor";
+import {openNewSkillModal} from "./actions/actions";
 
 Modal.setAppElement('body')
 
-let App = ({skills}) => {
+let App = ({skills, openModal, currentModal}) => {
     return (
         <div className="App">
             <div className="title-bar"/>
+            <ModalConductor currentModal={currentModal}/>
+
             <Container className="App-content horizontalScroll" fluid={true}>
                 <Row className="">
                     <Col xs="3" className="left-pane">
-                        <NewSkillModal/>
+                        <button onClick={openModal}>New Skill</button>
                     </Col>
                     <Col xs="9">
                         {skills.map((s, i) => {
@@ -33,9 +36,18 @@ let App = ({skills}) => {
 
 const mapStateToProps = state => {
     return {
-        skills: state.skills.skills
+        skills: state.skills.skills,
+        currentModal: state.modal.currentModal
     }
 };
 
-App = connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => {
+    return {
+        openModal: () => {
+            dispatch(openNewSkillModal());
+        }
+    };
+};
+
+App = connect(mapStateToProps, mapDispatchToProps)(App);
 export default App;
