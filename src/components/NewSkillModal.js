@@ -1,18 +1,7 @@
-import Modal from "react-modal";
 import React from "react";
 import {connect} from "react-redux";
 import {addNewSkill} from "../actions/actions";
-
-const customStyles = {
-    content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)'
-    }
-};
+import ChanceModal from "./ChanceModal";
 
 class NewSkillModal extends React.Component {
 
@@ -41,15 +30,13 @@ class NewSkillModal extends React.Component {
     render() {
         return (
             <div>
-                <Modal
-                    isOpen={true}
-                    style={customStyles}>
+                <ChanceModal>
                     <label>
                         Skill Name:
                         <input type="text" value={this.state.skillName} onChange={this.handleNameChange}/>
                     </label>
                     <button onClick={this.onCreate}>Create</button>
-                </Modal>
+                </ChanceModal>
             </div>
         );
     }
