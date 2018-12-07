@@ -6,6 +6,10 @@
     height: 100px;
 }
 
+.left-pane {
+    text-align: center;
+}
+
 .horizontalScroll {
     overflow-x: auto;
     white-space: nowrap;

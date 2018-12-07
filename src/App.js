@@ -11,7 +11,7 @@ let App = ({msg, btnPressed}) => {
             <div className="title-bar"/>
             <Container className="App-content horizontalScroll" fluid={true}>
                 <Row className="">
-                    <Col xs="3">
+                    <Col xs="3" className="left-pane">
                         <p>
                             {msg}
                         </p>
@@ -33,7 +33,7 @@ let App = ({msg, btnPressed}) => {
 
 const mapStateToProps = state => {
     return {
-        msg: state.message
+        msg: state.placeholder.message
     }
 };
 

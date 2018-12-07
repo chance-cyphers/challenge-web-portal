@@ -1,16 +1,23 @@
-export const FETCH_SUCCESS = 'FETCH_SUCCESS';
-export const FETCH_FAIL = 'FETCH_FAIL';
+export const FETCH_RANDOM_SUCCESS = 'FETCH_RANDOM_SUCCESS';
+export const FETCH_RANDOM_FAIL = 'FETCH_RANDOM_FAIL';
+export const ADD_NEW_SKILL = "ADD_NEW_SKILL";
 
-export function fetchSuccess(num) {
+export function addNewSkill() {
     return {
-        type: FETCH_SUCCESS,
+        type: ADD_NEW_SKILL
+    }
+}
+
+export function fetchRandomSuccess(num) {
+    return {
+        type: FETCH_RANDOM_SUCCESS,
         num: num
     };
 }
 
-export function fetchFail(err) {
+export function fetchRandomFail(err) {
     return {
-        type: FETCH_FAIL,
+        type: FETCH_RANDOM_FAIL,
         err: err
     };
 }

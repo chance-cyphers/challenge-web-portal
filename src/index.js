@@ -5,11 +5,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {createStore} from 'redux';
-import placeholder from './reducers/PlaceholderReducer';
 import {Provider} from 'react-redux'
 import {install} from 'redux-loop';
+import RootReducer from "./reducers/RootReducer";
 
-const store = createStore(placeholder, install());
+const store = createStore(RootReducer, install());
 
 
 render(
