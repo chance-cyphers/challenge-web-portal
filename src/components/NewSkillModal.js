@@ -35,11 +35,10 @@ export default class NewSkillModal extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.openModal}>Open Modal</button>
+                <button onClick={this.openModal}>New Skill</button>
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     onRequestClose={this.closeModal}
-                    contentLabel="Example Modal"
                     style={customStyles}
                 >
                     <p>WOOOOOOOooOoooooOO</p>

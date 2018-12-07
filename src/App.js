@@ -8,17 +8,13 @@ import NewSkillModal from "./components/NewSkillModal";
 
 Modal.setAppElement('body')
 
-let App = ({msg, btnPressed}) => {
+let App = ({msg}) => {
     return (
         <div className="App">
             <div className="title-bar"/>
             <Container className="App-content horizontalScroll" fluid={true}>
                 <Row className="">
                     <Col xs="3" className="left-pane">
-                        <p>
-                            {msg}
-                        </p>
-                        <button onClick={btnPressed}>Press me</button>
                         <NewSkillModal/>
                     </Col>
                     <Col xs="9">
@@ -42,9 +38,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        btnPressed: () => {
-            dispatch({type: "PLACEHOLDER_ACTION"});
-        }
     }
 };
 
