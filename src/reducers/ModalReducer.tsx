@@ -1,4 +1,4 @@
-import {ADD_NEW_SKILL, OPEN_NEW_SKILL_MODAL} from "../actions/actions";
+import {ADD_NEW_SKILL, OPEN_NEW_SKILL_MODAL, ReduxAction} from "../actions/actions";
 
 export const NEW_SKILL_MODAL = "NEW_SKILL_MODAL";
 
@@ -6,7 +6,7 @@ const initialState = {
     currentModal: null
 };
 
-export default function modalReducer(state = initialState, action) {
+export default function modalReducer(state = initialState, action: ReduxAction) {
     switch (action.type) {
         case OPEN_NEW_SKILL_MODAL:
             return {
