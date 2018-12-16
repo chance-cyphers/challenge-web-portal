@@ -1,5 +1,5 @@
 import Modal from "react-modal";
-import React from "react";
+import React, {FC} from "react";
 
 const customStyles = {
     content: {
@@ -12,7 +12,7 @@ const customStyles = {
     }
 };
 
-const ChanceModal = props => {
+const ChanceModal: FC = (props) => {
     return (
         <div>
             <Modal
@@ -22,6 +22,6 @@ const ChanceModal = props => {
             </Modal>
         </div>
     );
-}
+};
 
 export default ChanceModal;
