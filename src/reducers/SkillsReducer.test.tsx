@@ -1,11 +1,6 @@
 import skillsReducer from "./SkillsReducer";
 import {addNewSkill} from "../actions/actions";
 
-it('has initial state with no skills', () => {
-    const state = skillsReducer(undefined, {});
-    expect(state.skills.length).toBe(0);
-});
-
 it('adds skills for each ADD_NEW_SKILL action', () => {
     const state = skillsReducer(undefined, addNewSkill("bob"));
     expect(state.skills.length).toBe(1);
