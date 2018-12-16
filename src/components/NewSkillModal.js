@@ -12,11 +12,11 @@ class NewSkillModal extends React.Component {
         };
 
         this.createSkill = this.props.createSkill;
-        this.onCreate = this.onCreate.bind(this);
+        this.handleCreateClick = this.handleCreateClick.bind(this);
         this.handleNameChange = this.handleNameChange.bind(this);
     }
 
-    onCreate() {
+    handleCreateClick() {
         this.createSkill(this.state.skillName);
     }
 
@@ -35,7 +35,7 @@ class NewSkillModal extends React.Component {
                         Skill Name:
                         <input type="text" value={this.state.skillName} onChange={this.handleNameChange}/>
                     </label>
-                    <button onClick={this.onCreate}>Create</button>
+                    <button onClick={this.handleCreateClick}>Create</button>
                 </ChanceModal>
             </div>
         );
