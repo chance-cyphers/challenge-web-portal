@@ -7,11 +7,11 @@ const initialState = {
     currentModal: NO_MODAL
 };
 
-interface State {
+export interface ModalState {
     readonly currentModal: string
 }
 
-export default function modalReducer(state: State = initialState, action: ReduxAction): State {
+export default function modalReducer(state: ModalState = initialState, action: ReduxAction): ModalState {
     switch (action.type) {
         case OPEN_NEW_SKILL_MODAL:
             return {

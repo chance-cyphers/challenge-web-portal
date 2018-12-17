@@ -1,10 +1,10 @@
 import {ADD_NEW_SKILL, ReduxAction} from "../actions/actions";
 
-interface Skill {
+export interface Skill {
     readonly name: string
 }
 
-interface State {
+export interface SkillsState {
     skills: ReadonlyArray<Skill>
 }
 
@@ -12,7 +12,7 @@ const initialState = {
     skills: []
 };
 
-export default function skillsReducer(state: State = initialState, action: ReduxAction): State {
+export default function skillsReducer(state: SkillsState = initialState, action: ReduxAction): SkillsState {
     switch (action.type) {
         case ADD_NEW_SKILL:
             return {

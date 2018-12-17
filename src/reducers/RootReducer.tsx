@@ -1,10 +1,15 @@
 import {combineReducers} from "redux-loop";
-import placeholder from "./PlaceholderReducer";
-import skillsReducer from "./SkillsReducer";
-import modalReducer from "./ModalReducer";
+import skillsReducer, {SkillsState} from "./SkillsReducer";
+import modalReducer, {ModalState} from "./ModalReducer";
 
-export default combineReducers({
-    placeholder: placeholder,
+export interface RootState {
+    skills: SkillsState
+    modal: ModalState
+}
+
+let rootReducer = combineReducers({
     skills: skillsReducer,
     modal: modalReducer
-})
+});
+
+export default rootReducer;
