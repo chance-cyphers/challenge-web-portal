@@ -1,3 +1,4 @@
+import {Skill} from "../reducers/SkillsReducer";
 
 export const ADD_NEW_SKILL = "ADD_NEW_SKILL";
 interface AddNewSkill {
@@ -20,6 +21,28 @@ export function openNewSkillModal(): OpenNewSkillModal {
     return {
         type: OPEN_NEW_SKILL_MODAL
     };
+}
+
+
+export const CREATE_SKILL_SUCCESS = 'CREATE_SKILL_SUCCESS';
+interface CreateSkillSuccess {
+    type: typeof CREATE_SKILL_SUCCESS,
+    skill: Skill
+}
+export function createSkillSuccess(skill: Skill): ReduxAction {
+    return {
+        type: CREATE_SKILL_SUCCESS,
+        skill: skill
+    };
+}
+
+
+export const CREATE_SKILL_FAILURE = 'CREATE_SKILL_FAILURE';
+interface CreateSkillFailure {
+    type: typeof CREATE_SKILL_FAILURE
+}
+export function createSkillFailure(): ReduxAction {
+    return {type: CREATE_SKILL_FAILURE};
 }
 
 
@@ -48,4 +71,9 @@ export function fetchRandomFail(err: string): FetchRandomFail {
     };
 }
 
-export type ReduxAction = AddNewSkill | OpenNewSkillModal | FetchRandomSuccess | FetchRandomFail;
+export type ReduxAction = AddNewSkill
+    | OpenNewSkillModal
+    | FetchRandomSuccess
+    | FetchRandomFail
+    | CreateSkillSuccess
+    | CreateSkillFailure;
